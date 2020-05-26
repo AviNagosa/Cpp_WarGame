@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "FootSoldier.hpp"
+#include "SniperCommander.hpp"
 
 namespace WarGame 
 {

@@ -3,14 +3,10 @@
 
 namespace WarGame 
 {
-
     class FootCommander : public Soldier
     {
-        private:
-        int footCommander;
-
         public:
-        FootCommander();
-        FootCommander(int n) : footCommander(n){}
+            FootCommander();
+            FootCommander(uint p) : Soldier(p,150,20,"FootCommander"){}
     };
 }
