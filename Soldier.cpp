@@ -15,6 +15,5 @@ namespace WarGame
     void Soldier::setPlayer(uint p){player = p;}
     void Soldier::setHealth(uint h){health = h;}
     void Soldier::setDamage(uint d){damage = d;}
-    void Soldier::setType(std::string t){type = t;}
 }
     

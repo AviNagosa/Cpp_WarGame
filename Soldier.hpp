@@ -22,7 +22,6 @@ namespace WarGame
             void setPlayer(uint);
             void setHealth(uint);
             void setDamage(uint);
-            void setType(std::string);
     };
 }
     
