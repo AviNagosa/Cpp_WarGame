@@ -8,6 +8,6 @@ using namespace std;
 ////////////////////////////////////100 Test/////////////////////////////////
 TEST_CASE("Test case")
 {
-
+//    CHECK(a.find("me") == string("Yosef"));
 }
 

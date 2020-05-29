@@ -5,11 +5,14 @@ namespace WarGame
     class Soldier
     {
         private:
-        int counterSoldier;
-
+        int group;
+        int initial_health_points;
+        int damage_per_activity;
+       
         public:
         Soldier();
-        Soldier(int num) : counterSoldier(num){}
+        Soldier(int num) : group(num){}
+
     };
 }
     
