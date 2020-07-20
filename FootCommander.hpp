@@ -1,16 +1,17 @@
 #pragma once
 #include "Soldier.hpp"
-
+#include "FootSoldier.hpp"
+#include "Board.hpp"
 namespace WarGame 
 {
-
-    class FootCommander : public Soldier
+    class FootCommander : public FootSoldier
     {
-        private:
-        int footCommander;
-
         public:
-        FootCommander();
-        FootCommander(int n) : footCommander(n){}
+            FootCommander(){};
+            ~FootCommander(){};
+            FootCommander(uint n) : FootSoldier(n,150,150,20){}
+
+             void attack(const Board &s);
+         
     };
 }

@@ -1,13 +1,12 @@
 #include <stdexcept>
-#include "FootCommander.hpp"
-#include "Soldier.hpp"
-namespace WarGame
+#include "SniperCommander.hpp"
+#include "Board.hpp"
+namespace WarGame 
 {
 
-    void FootCommander::attack(const Board &b)
+    void SniperCommander:: attack(const Board &b)
     {
-
-        int point = 0;
+         int point = 0;
         int max_point = 0;
         Soldier *strong_soldier;
         Soldier *s;
@@ -29,20 +28,21 @@ namespace WarGame
         strong_soldier->injury(this->damage);
         //////////////////////////////////////////////////////
 
-        ////////all the soldier attack//////////////////////
+        ////////all the snipers attack//////////////////////
         for (int i = 0; i < b.get_size(); i++)
         {
             for (int j = 0; j < b.get_size(); j++)
             {
-                FootSoldier *footSoldier = dynamic_cast<FootSoldier *>(b[{i, j}]);
-                if (footSoldier)
+                Sniper *sniper = dynamic_cast<Sniper *>(b[{i, j}]);
+                if (sniper)
                 {
-                    if (footSoldier->get_num() == this->get_num())
+                    if (sniper->get_num() == this->get_num() && (*sniper)!=(*this))
                     {
-                        footSoldier->attack(b);
+                        sniper->attack(b);
                     }
                 }
             }
         }
     }
-} // namespace WarGame
+   
+}

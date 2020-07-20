@@ -6,11 +6,9 @@
  * @author Erel Segal-Halevi
  * @since  2020-05
  */
-
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
-
 #include <cassert>
 
 namespace WarGame {
@@ -34,6 +32,7 @@ namespace WarGame {
 		}
 
 		uint DemoGame::play() {
+			
 			board.move(1, {0,1}, Board::MoveDIR::Up);      // FootSoldier of player 1 moves forward and attacks.
 			if (!board.has_soldiers(2)) return 1;
 
@@ -51,4 +50,19 @@ namespace WarGame {
 			// If no player won, return "tie":
 			return 0;
 		}
+		DemoGame::~DemoGame()
+		{
+			for(int i=0;i<board.get_size();i++)
+			{
+				
+				for(int j=0;j<board.get_size();j++)
+				{
+					Soldier* soldier=board[{i,j}];
+					if(soldier){
+						delete soldier;
+					}
+				}
+			}
+		}
 }
+

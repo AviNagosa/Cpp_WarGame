@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * Header file for the board of the war game.
  * 
@@ -22,14 +24,14 @@ class Board {
     enum MoveDIR { Up, Down, Right, Left };
     
     Board(uint numRows, uint numCols) : 
-      board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
+     board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
 
     // operator for putting soldiers on the game-board during initialization.
-    Soldier*& operator[](std::pair<int,int> location);
+    Soldier *& operator[](std::pair<int,int> location);
     
     // operator for reading which soldiers are on the game-board.
-    Soldier* operator[](std::pair<int,int> location) const;
-    
+    Soldier * operator[](std::pair<int,int> location) const;
+ 
     // The function "move" tries to move the soldier of player "player"
     //     from the "source" location to the "target" location,
     //     and activates the special ability of the soldier.
@@ -45,6 +47,12 @@ class Board {
 
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(uint player_number) const;
+
+    bool is_legal_location(std::pair<int,int> p);
+
+    int get_size()const{return board.size();}
+    
+    std::pair<int,int> get_location(const Soldier &s);
 };
 
 }

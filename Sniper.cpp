@@ -1,21 +1,17 @@
 #include <stdexcept>
-#include "FootSoldier.hpp"
-#include "Board.hpp"
-namespace WarGame 
+#include "Sniper.hpp"
+
+namespace WarGame
 {
+    void Sniper::attack(const Board &b)
+    {
+        Soldier *s=&getcloseSoldier(b);
+        s->injury(this->damage);
+    }
 
-         void FootSoldier:: attack(const Board &b)
-       { 
-            
-            Soldier *s=&getcloseSoldier(b);
-            s->injury(this->damage);
-
-       }
-
-
-         Soldier& FootSoldier:: getcloseSoldier( const Board  &board)
-        {
-            int row= board.get_size();
+    Soldier &Sniper:: getcloseSoldier(const Board &board)
+    {
+        int row= board.get_size();
              int column=board.get_size();
              double min=0;
              double dist=0;
@@ -24,7 +20,7 @@ namespace WarGame
                  for(int j=0;j<column;j++)
                  {
                      Soldier *temp=board[{i,j}];
-                   if((*this)!=(*temp))
+                   if(this->get_num()!=temp->get_num())
                    {
                      if(this->distance(*temp)<min)
                      {
@@ -39,6 +35,5 @@ namespace WarGame
              Soldier *s2=board[p];
              
              return *s2;
-        }
-   
-}
+    }
+} // namespace WarGame
