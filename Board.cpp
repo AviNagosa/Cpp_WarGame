@@ -7,14 +7,14 @@ namespace WarGame
 {
 
     // operator for putting soldiers on the game-board during initialization.
-    Soldier *& Board::operator[](std::pair<int, int> location)
+    Soldier *&Board::operator[](std::pair<int, int> location)
     {
-    
+
         return board[location.first][location.second];
     }
 
     // operator for reading which soldiers are on the game-board.
-    Soldier * Board::operator[](std::pair<int, int> location) const
+    Soldier *Board::operator[](std::pair<int, int> location) const
     {
         return board[location.first][location.second];
     }
@@ -35,9 +35,10 @@ namespace WarGame
 
         if (!is_legal_location(source))
         {
+        
             throw("invalid_argument the soldider loaction is null");
         }
-
+  
         std::pair<int, int> dest;
         switch (direction)
         {
@@ -45,7 +46,9 @@ namespace WarGame
             dest = {source.first + 1, source.second};
             if (is_legal_location(dest))
             {
+               
                 Soldier *s = (*this)[source];
+                
                 *(*this)[dest] = s;
             }
             break;
@@ -99,20 +102,21 @@ namespace WarGame
 
     bool Board::is_legal_location(std::pair<int, int> location)
 
-
     {
+    
         if (location.first < 0 || location.first > board.size() || location.second < 0 || location.second > board.size())
         {
             throw "invalid_argument outsize of range";
         }
         Soldier *s = (*this)[location];
-        if (s != NULL)
+        if (*s!= NULL)
         {
+            
             return false;
         }
+     
         return true;
     }
-
 
     // std::pair<int,int> Board::get_location(const Soldier &s)
     // {

@@ -60,7 +60,7 @@ namespace WarGame
         int get_num() { return player_num; }
         int get_currnet_health() { return currnet_health; }
         int get_damage() { return damage; }
-        virtual void f();
+        // virtual void f();
 
         // virtual void attack(const Board &board);
     };

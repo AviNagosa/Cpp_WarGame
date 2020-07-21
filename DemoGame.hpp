@@ -8,8 +8,9 @@
  * @since  2020-05
  */
 
-#include "Board.hpp"
 
+#include "Board.hpp"
+#include "Soldier.hpp"
 namespace WarGame {
 	class DemoGame {
 	 private:
