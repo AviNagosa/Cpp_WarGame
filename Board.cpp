@@ -16,6 +16,7 @@ namespace WarGame
     // operator for reading which soldiers are on the game-board.
     Soldier *Board::operator[](std::pair<int, int> location) const
     {
+
         return board[location.first][location.second];
     }
 
@@ -33,35 +34,36 @@ namespace WarGame
     void Board::move(uint player_number, std::pair<int, int> source, MoveDIR direction)
     {
 
-        if (!is_legal_location(source))
-        {
-        
-            throw("invalid_argument the soldider loaction is null");
-        }
-  
-        std::pair<int, int> dest;
+        //  print();
+        std::pair<int, int> dest{0,0};
+
         switch (direction)
         {
+
         case Up:
+
             dest = {source.first + 1, source.second};
+       
+            cout << "UP befor if Case" << endl;
             if (is_legal_location(dest))
             {
-               
-                Soldier *s = (*this)[source];
-                
-                *(*this)[dest] = s;
-            }
-            break;
 
+                Soldier *s = (*this)[source];
+                (*this)[dest] = s;
+                (*this)[source] = NULL;
+                cout << "UP after if Case" << endl;
+            }
+            cout<<"break"<<endl;
+            break;
         case Down:
             dest = {source.first - 1, source.second};
+            cout << "Down befor if Case" << endl;
             if (is_legal_location(dest))
             {
                 Soldier *s = (*this)[source];
                 *(*this)[dest] = s;
             }
             break;
-
         case Right:
             dest = {source.first, source.second + 1};
             if (is_legal_location(dest))
@@ -70,15 +72,13 @@ namespace WarGame
                 *(*this)[dest] = s;
             }
             break;
-
-        case Left:
+        default:
             dest = {source.first, source.second - 1};
             if (is_legal_location(dest))
             {
                 Soldier *s = (*this)[source];
                 *(*this)[dest] = s;
             }
-            break;
         }
     }
     // returns true iff the board contains one or more soldiers of the given player.
@@ -103,18 +103,25 @@ namespace WarGame
     bool Board::is_legal_location(std::pair<int, int> location)
 
     {
-    
-        if (location.first < 0 || location.first > board.size() || location.second < 0 || location.second > board.size())
+        static int a = 0;
+        cout << "is_legal_location number " << a++ << endl;
+        cout << location.first << "," << location.second << endl;
+
+        if (location.first < 0 || location.first >= board.size() || location.second < 0 || location.second >= board.size())
         {
-            throw "invalid_argument outsize of range";
-        }
-        Soldier *s = (*this)[location];
-        if (*s!= NULL)
-        {
-            
+
             return false;
         }
-     
+
+        Soldier *s = (*this)[location];
+        //     cout<<(*this)[location]->id<<endl;
+        cout << "---" << endl;
+        if (s != NULL)
+        {
+            cout << "---is_legal_location----return FALSE-----" << endl;
+            return false;
+        }
+        cout << "---is_legal_location----return TRUE-----" << endl;
         return true;
     }
 

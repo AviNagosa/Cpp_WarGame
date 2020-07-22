@@ -35,6 +35,7 @@ namespace WarGame {
 		uint DemoGame::play() {
 			    
 			board.move(1, {0,1}, Board::MoveDIR::Up);      // FootSoldier of player 1 moves forward and attacks.
+			cout<<"|||||||||||||"; 
 			if (!board.has_soldiers(2)) return 1;
            
 			board.move(2, {7,1}, Board::MoveDIR::Down);    // FootSoldier of player 2 moves forward and attacks.

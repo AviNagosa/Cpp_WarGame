@@ -18,8 +18,7 @@ namespace WarGame
        
         Soldier& getcloseSoldier(const Board &board);
         
-         
-        
+     
 
         
     };
