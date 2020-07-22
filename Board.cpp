@@ -44,42 +44,62 @@ namespace WarGame
 
             dest = {source.first + 1, source.second};
        
-            cout << "UP befor if Case" << endl;
+            // cout << "UP befor if Case" << endl;
             if (is_legal_location(dest))
             {
-
                 Soldier *s = (*this)[source];
                 (*this)[dest] = s;
                 (*this)[source] = NULL;
-                cout << "UP after if Case" << endl;
+                
+                // cout << "UP after if Case" << endl;
+                s->set_location(dest.first,dest.second);
+               s->attack();
             }
-            cout<<"break"<<endl;
+            // cout<<"break"<<endl;
             break;
         case Down:
             dest = {source.first - 1, source.second};
-            cout << "Down befor if Case" << endl;
+            // cout << "Down befor if Case" << endl;
             if (is_legal_location(dest))
             {
-                Soldier *s = (*this)[source];
-                *(*this)[dest] = s;
+                   Soldier *s = (*this)[source];
+                (*this)[dest] = s;
+                (*this)[source] = NULL;
+                
+                // cout << "Down after if Case" << endl;
+                 s->set_location(dest.first,dest.second);
+               s->attack();
             }
+           
             break;
         case Right:
             dest = {source.first, source.second + 1};
+            // cout << "Right befor if Case" << endl;
             if (is_legal_location(dest))
-            {
-                Soldier *s = (*this)[source];
-                *(*this)[dest] = s;
+            {    Soldier *s = (*this)[source];
+                (*this)[dest] = s;
+                (*this)[source] = NULL;
+                
+                // cout << "Right after if Case" << endl;
+                 s->set_location(dest.first,dest.second);
+               s->attack();
             }
             break;
         default:
             dest = {source.first, source.second - 1};
+            // cout << "Left befor if Case" << endl;
             if (is_legal_location(dest))
             {
                 Soldier *s = (*this)[source];
-                *(*this)[dest] = s;
+                (*this)[dest] = s;
+                (*this)[source] = NULL;
+                
+                // cout << "Left after if Case" << endl;
+                 s->set_location(dest.first,dest.second);
+               s->attack();
             }
         }
+    
     }
     // returns true iff the board contains one or more soldiers of the given player.
     bool Board::has_soldiers(uint player_number) const
@@ -89,11 +109,20 @@ namespace WarGame
             for (int j = 0; i < board[i].size(); j++)
             {
                 std::pair<int, int> location(i, j);
-                Soldier *s = (*this)[location];
-                if (s->get_num() == player_number)
+               
+                //(*this)[location];
+                if ((*this)[location]!=NULL)
                 {
+                     cout<<(*this)[location]->location.second<<endl;
+                     cout<<"has_soldier-------------"<<endl;
                     return true;
                 }
+                else
+                {
+                     cout<<"has_no_soldier"<<endl;
+                }
+                 
+                
             }
         }
 
@@ -103,9 +132,8 @@ namespace WarGame
     bool Board::is_legal_location(std::pair<int, int> location)
 
     {
-        static int a = 0;
-        cout << "is_legal_location number " << a++ << endl;
-        cout << location.first << "," << location.second << endl;
+   
+       
 
         if (location.first < 0 || location.first >= board.size() || location.second < 0 || location.second >= board.size())
         {
@@ -115,13 +143,13 @@ namespace WarGame
 
         Soldier *s = (*this)[location];
         //     cout<<(*this)[location]->id<<endl;
-        cout << "---" << endl;
+        // cout << "---" << endl;
         if (s != NULL)
         {
-            cout << "---is_legal_location----return FALSE-----" << endl;
+            // cout << "---is_legal_location----return FALSE-----" << endl;
             return false;
         }
-        cout << "---is_legal_location----return TRUE-----" << endl;
+        // cout << "---is_legal_location----return TRUE-----" << endl;
         return true;
     }
 

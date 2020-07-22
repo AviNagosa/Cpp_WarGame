@@ -82,8 +82,8 @@ namespace WarGame
         for (int j = 0; j < board.size(); j++)
         {
           Soldier *s = (*this)[{i, j}];
-
-          cout << s->id;
+         if(s!=NULL)
+              cout << s->location.first<<","<<s->location.second<<endl;
         }
         cout << endl;
       }

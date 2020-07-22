@@ -16,6 +16,5 @@ int main() {
 	cout << "The winner is:\n " << demoGame.play() << endl;
 
 
-
     return 0;
 }

@@ -16,7 +16,7 @@ namespace WarGame
         {
             for (int j = 0; j < b.get_size(); j++)
             {
-                *s = b[{i, j}];
+                s = b[{i, j}];
                 point = s->get_currnet_health();
                 if (point > max_point && s->get_num() != this->get_num())
                 {

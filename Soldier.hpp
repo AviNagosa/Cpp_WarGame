@@ -25,20 +25,21 @@ namespace WarGame
         Soldier(int num, int start_h, int current_h, int damage_): 
                       player_num(num), start_health(start_h), currnet_health(current_h), damage(damage_), id(ID++) 
                       {
-                          cout<<"create Soldier number"<<id<<endl;;
+                         
                       }
 
-        void operator=(const Soldier *other)
-        {
-            cout<<"copy cons"<<endl;
-            this->id = other->id;
-            this->player_num = other->player_num;
-            this->start_health=other->start_health;
-            this->currnet_health=other->currnet_health;
-            this->damage=other->damage;
-            this->location.first=other->location.first;
-            this->location.second=other->location.second;
-        }
+        // void operator=(const Soldier *other)
+        // {
+        //     cout<<"copy cons"<<endl;
+        //     this->id = other->id;
+        //     this->player_num = other->player_num;
+        //     this->start_health=other->start_health;
+        //     this->currnet_health=other->currnet_health;
+        //     this->damage=other->damage;
+        //     this->location.first=other->location.first;
+        //     this->location.second=other->location.second;
+        //      cout<<"copy cons"<<endl;
+        // }
         bool operator==(const Soldier &s)
 
         {
@@ -70,7 +71,7 @@ namespace WarGame
         int get_currnet_health() { return currnet_health; }
         int get_damage() { return damage; }
    
-        // virtual void f();
+         virtual void attack(){}
 
         // virtual void attack(const Board &board);
     };
