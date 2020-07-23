@@ -1,26 +1,15 @@
 #pragma once
-
 #include <iostream>
 #include "Soldier.hpp"
-#include "Board.hpp"
-namespace WarGame 
-{
-    class FootSoldier : public Soldier
-    {
-      
-        public:
-        FootSoldier();
-        virtual ~FootSoldier(){};
-        FootSoldier(int n) :Soldier(n,100,100,10){}
-        FootSoldier(int n,int s_h,int c_h,int d): Soldier(n,s_h,c_h,d){}
+using namespace std;
 
-        virtual void attack(const Board &s);
-       
-        Soldier& getcloseSoldier(const Board &board);
-        
-     
+class FootSoldier : public Soldier {
+public:
+    FootSoldier(uint playerNumber, int currentPoint = 100 , int maxPoint = 100, int damage = 10,string type = "FS") : Soldier(playerNumber, currentPoint, maxPoint, damage,type){}
+    virtual ~FootSoldier(){}
+    virtual void operation(std::vector<std::vector<Soldier*>> &board,std::pair<int,int> source);
+    double getDistance(int x1, int y1, int x2, int y2) {
+        return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));}
+};
 
-        
-    };
 
-}

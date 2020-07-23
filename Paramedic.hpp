@@ -1,15 +1,14 @@
 #pragma once
 #include "Soldier.hpp"
-#include "Board.hpp"
-namespace WarGame 
-{
+using namespace std;
 
-    class Paramedic : public Soldier
-    {
-        public:
-            Paramedic();
-            Paramedic(uint  n) : Soldier(n,100,0,0){}
-            Paramedic(int n, int s_h,int c_h,int d):Soldier(n,s_h,c_h,d){}
-            virtual void heal(const Board &b);
-    };
-}
+class Paramedic : public Soldier
+{
+public:
+    Paramedic(uint playerNumber, int currentPoint = 100, int maxPoint = 100, int damage = 0, string type = "P") : Soldier(playerNumber, currentPoint, maxPoint, damage, type) {}
+    virtual ~Paramedic() {}
+    virtual void operation(std::vector<std::vector<Soldier *>> &board, std::pair<int, int> source);
+
+    // void healAround(std::vector<std::vector<Soldier *>> &board, int x1, int y1);
+   
+};

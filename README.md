@@ -1,8 +1,19 @@
+![Diagram](https://app.lucidchart.com/publicSegments/view/998ea9eb-531f-4edf-93b8-9076b21a58ad/image.png)
 <div dir="rtl" lang="he">
 
-# משחק מלחמה - שלב א
+# משחק מלחמה - שלב ב
 
-במטלה זו עליכם לתכנן משחק מלחמה לשני שחקנים על לוח מלבני.
+כיתבו מימוש מלא של המשחק.
+המימוש צריך לעבור את כל הבדיקות - שלכם ושלנו.
+
+אנחנו מריצים את הפקודה הבאה:
+
+<div dir='ltr'>
+
+	make test && ./test
+
+</div>
+
 
 לכל שחקן יש מספר חיילים מסוגים שונים, לכל סוג חייל יש יכולות שונות המפורטות בהמשך.
 כל שחקן בתורו יכול להזיז שחקן אחד למקום אחד לבחירתו, בהתאם ליכולות התנועה של החייל.
@@ -28,43 +39,6 @@
 * FootCommander: initial health points=150, damage per activity=20.
 * Sniper: initial health points=100, damage per activity=50.
 * SniperCommander: initial health points=120, damage per activity=100.
-* Paramedic: initial health points=100, health per activity=50.
-* ParamedicCommander: initial health points=200, health per activity=100.
-
-## מחלקות
-
-בנוסף למחלקות המייצגות את סוגי החיילים השונים, אתם צריכים לממש את המחלקה 
-Board
-המייצגת את לוח המשחק, בהתאם לכותרת שבקובץ Board.hpp.
-
-כדוגמה לאופן השימוש במחלקה זו, יצרנו עבורכם משחק פשוט לדוגמה בשם
-DemoGame.
-
-אתם יכולים להשתמש בו כדוגמה ולבנות משחקים מורכבים יותר.
-
-
-## הגשה
-
-כמו תמיד בשלב א יש לכתוב בדיקות-יחידה. הפקודות הבאות צריכות לרוץ בלי שגיאות:
-
-<div dir='ltr'>
-
-    make demo && ./demo
-	make test && ./test
-
-</div>
-
-כיוון שהמטלה ארוכה מהרגיל, במטלה זו אין צורך לבדוק את כל מקרי-הקצה,
-אלא רק את הדרישות הבסיסיות.
-
-## דגשים
-
-* לפני שמתחילים לתכנת, יש לתכנן את מבנה הקוד, המחלקות והירושות. יש להגיש בגיטהאב, יחד עם הקוד, מסמך תיכנון הכולל תרשים מחלקות.
-* יש לתכנן את הקוד באופן שיהיה קל להרחבה ולשינוי בעתיד, למשל אם נרצה להוסיף סוגים שונים של חיילים או לשנות את חוקי המשחק.
-
-
-## מקורות
-
-* ההשראה למטלה היא ממטלה של גיל לוי בקורס "תיכנות מתקדם" שנת ה'תשע"ז.
-
+* Paramedic: initial health points=100, health per activity=full.
+* ParamedicCommander: initial health points=200, health per activity=full.
 </div>

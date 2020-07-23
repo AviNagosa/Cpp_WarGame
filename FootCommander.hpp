@@ -1,17 +1,9 @@
 #pragma once
-#include "Soldier.hpp"
 #include "FootSoldier.hpp"
-#include "Board.hpp"
-namespace WarGame 
-{
-    class FootCommander : public FootSoldier
-    {
-        public:
-            FootCommander(){};
-            ~FootCommander(){};
-            FootCommander(uint n) : FootSoldier(n,150,150,20){}
-
-             void attack(const Board &s);
-         
-    };
-}
+using namespace std;
+class FootCommander : public FootSoldier {
+public:
+    FootCommander(uint playerNumber, int currentPoint = 150, int maxPoint = 150, int damage = 20,string type = "FC") : FootSoldier(playerNumber, currentPoint, maxPoint, damage,type){}
+    ~FootCommander(){}
+    void operation(std::vector<std::vector<Soldier*>> &board,std::pair<int,int> source);
+};

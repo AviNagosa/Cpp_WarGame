@@ -1,16 +1,9 @@
 #pragma once
-#include "Soldier.hpp"
 #include "Sniper.hpp"
-namespace WarGame 
-{
-    class SniperCommander : public Sniper
-    {
-        public:
-            SniperCommander();
-            SniperCommander(uint p) : Sniper(p,120,120,100){}
-
-            void attack(const Board &b);
-
-            
-    };
-}
+using namespace std;
+class SniperCommander : public Sniper {
+    public:
+        SniperCommander(uint playerNumber, int currentPoint = 120, int maxPoint = 120, int damage = 100,string type = "SC") : Sniper(playerNumber,currentPoint,maxPoint,damage,type){}
+        ~SniperCommander(){}
+        void operation(std::vector<std::vector<Soldier*>> &board,std::pair<int,int> source);
+};
