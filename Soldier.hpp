@@ -12,7 +12,7 @@ protected:
     int maxPoint;
     std::string type;
 public :
-    Soldier(uint mPlayerNumber, int mHp, int mMaxHP, int mDamage,string type) : playerNumber(mPlayerNumber), currentPoint(mHp), maxPoint(mMaxHP), damage(mDamage), type(type){}
+    Soldier(uint mPlayerNumber, int c_p, int m_P, int mDamage,string type) : playerNumber(mPlayerNumber), currentPoint(c_p), maxPoint(c_p), damage(mDamage), type(type){}
     virtual ~Soldier(){}
     virtual void operation(std::vector<std::vector<Soldier*>> &board,std::pair<int,int> source) = 0;
 
